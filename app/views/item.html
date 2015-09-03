@@ -1,0 +1,25 @@
+<div class="item">
+	<div class="alert alert-success" ng-show="success">Produto {{ item.produto }} editado com sucesso</div>
+	<div ng-show="error" class="alert alert-danger">{{error}}</div>
+	<form name="form" role="form">
+	  <fieldset>
+	    <div class="form-group">
+	      <label for="produto">Produto</label>
+	      <input type="text" name="produto" id="produto" class="form-control" placeholder="" value="{{ item.produto }}" ng-model="item.produto" required>
+	      <span ng-show="form.produto.$dirty && form.produto.$error.required" class="help-block red">Usuário é necessário</span>
+	    </div>
+	    <div class="form-group">
+	      <label for="quantidade">Quantidade</label>
+			<input type="number" id="quantidade" class="form-control" placeholder="" value="{{ item.quantidade }}" ng-model="item.quantidade">
+	    </div>
+	    <div class="checkbox">
+	      <label>
+	        <input type="checkbox" ng-model="item.comprado"/>já foi comprado?
+	      </label>
+	    </div>
+	    <br/>
+	    <button ng-disabled="form.$invalid" type="submit" ng-click="editarItem(item); success=true" class="btn btn-primary">Salvar</button>
+	    <a class="pull-right" href="#/">voltar à lista de compras</a>
+	  </fieldset>
+	</form>
+</div>
